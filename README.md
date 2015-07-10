@@ -13,6 +13,6 @@ App have three pages : "/"(login), "/signup" and "/search".
 
 "/search" page is available only for auth users.
 
-Logout is remove all local storage data for cart and orders current user.
+Logout is remove all cart and orders local storage data for current user.
 
 Default user is admin(email : admin@mail.com , pass: admin)
