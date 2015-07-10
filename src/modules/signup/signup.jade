@@ -1,0 +1,12 @@
+form.signup(ng-submit="signup(semail,spasso,spasst)")
+	span.error(ng-if="signerr") {{signerr}}
+	h1 SIGN UP
+	label E-mail :
+	input(type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ng-model="semail" placeholder="example@mail.com" required)
+	label Set a password :
+	input(type="password" ng-model="spasso" placeholder="password" required)
+	label Confirm the password :
+	input(type="password" ng-model="spasst" placeholder="repeat password " required)
+	input.btn(type="submit" value="Sign Up")
+	p	or 
+		a(href="/") log in

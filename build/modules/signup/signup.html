@@ -1,0 +1,12 @@
+
+<form ng-submit="signup(semail,spasso,spasst)" class="signup"><span ng-if="signerr" class="error">{{signerr}}</span>
+  <h1>SIGN UP</h1>
+  <label>E-mail :</label>
+  <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$" ng-model="semail" placeholder="example@mail.com" required="required"/>
+  <label>Set a password :</label>
+  <input type="password" ng-model="spasso" placeholder="password" required="required"/>
+  <label>Confirm the password :</label>
+  <input type="password" ng-model="spasst" placeholder="repeat password " required="required"/>
+  <input type="submit" value="Sign Up" class="btn"/>
+  <p>	or <a href="/">log in</a></p>
+</form>

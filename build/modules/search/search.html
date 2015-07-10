@@ -1,0 +1,43 @@
+
+<div class="search">
+  <button ng-click="logout()" class="btn logout">Logout</button>
+  <div class="status"><span>Authorized user : {{authuser}}</span><span ng-model="ordered" ng-change="refresh()"></span><span ng-click="cartModal()" class="cartLink">Cart : {{ordered.length}} item<span ng-if="ordered.length &gt;1">s</span></span></div>
+  <div class="filter">
+    <div class="f">
+      <label class="dfrom">From</label>
+      <datepicker date-format="MM/dd/yyyy" class="datepick">
+        <input ng-model="minDate" type="text" placeholder="Choose date" ng-change="newMinDate(minDate)" class="dfrom"/>
+      </datepicker>
+      <button ng-if="minDate" ng-click="minRemove()" class="btn delete">&#10007;</button>
+      <label class="dto">To</label>
+      <datepicker date-format="MM/dd/yyyy" class="datepick">
+        <input ng-model="maxDate" type="text" placeholder="Choose date" ng-change="newMaxDate(minDate)" class="dto"/>
+      </datepicker>
+      <button ng-if="maxDate" ng-click="maxRemove()" class="btn delete">&#10007;</button>
+      <input type="checkbox" name="stock" ng-model="inStock" ng-init="inStock=false" class="stock"/>
+      <label class="stock">In stock only</label>
+    </div>
+    <div class="s">
+      <label class="pfrom">Price from</label>
+      <input type="text" placeholder="Enter the price from" ng-model="minPrice" class="pfrom"/>
+      <label class="pto">To</label>
+      <input type="text" placeholder="Enter the price to" ng-model="maxPrice" class="pto"/>
+      <label class="color">Color</label>
+      <select size="1" ng-model="ccolor" class="color">
+        <option value=""></option>
+        <option ng-repeat="color in colors" value="{{color}}">{{color}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="list">
+    <ul>
+      <li ng-repeat="item in items" ng-hide="item.color != ccolor &amp;&amp; ccolor || !item.inStock &amp;&amp; inStock || item.price &lt; minPrice &amp;&amp; minPrice || item.price &gt; maxPrice &amp;&amp; maxPrice || item.issueDate &lt; dateFrom &amp;&amp; dateFrom || item.issueDate &gt; dateTo &amp;&amp; dateTo"><img ng-src="{{item.img}}"/><span class="row"><span class="name">{{item.name}}</span><span class="isDate">{{item.issueDate | date}}</span><span class="price">{{item.price| currency}}</span></span><span class="row"><span class="color">{{item.color}}</span><span ng-if="item.inStock==true" class="inStock">&#10004; In stock</span>
+          <button ng-hide="ordered.indexOf(item.id) != -1 &amp;&amp; ordered!=null" ng-click="addorder($index)" class="btn">Order</button><span ng-show="ordered.indexOf(item.id) &gt; -1" class="ordered">
+            <button ng-click="delorder($index)" class="btn">Cancel</button><span class="inCart">&#10004; In cart</span></span></span><span class="row">
+          <ul ng-init="star=item.rait;istar=5-star" class="rait">
+            <li ng-repeat="n in [] | range:star"><span active-star="active-star" class="astar"></span></li>
+            <li ng-repeat="n in [] | range:istar"><span inactive-star="inactive-star" class="istar"></span></li>
+          </ul></span></li>
+    </ul>
+  </div>
+</div>

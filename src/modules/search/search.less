@@ -1,0 +1,145 @@
+.search {
+	width: 1024px;
+	padding-left: 24px;
+	padding-rigth: 24px;
+	margin: 0 auto;
+	position: relative;
+	span, label{
+		&:hover{
+			cursor: default;
+		}
+	}
+	.logout{
+		position: absolute;
+		right: 120px;
+		top: -6px;
+	}
+	.status {
+		text-align: center;
+		width: 500px;
+		height: 20px;
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		span{
+			&:first-child{
+				float: left;
+			}
+			&:last-child{
+				float: right;
+			}
+		}
+		span.cartLink{
+			&:hover{
+				cursor: pointer;
+				text-decoration: underline;
+			}
+		}
+	}
+	.filter {
+		width: 750px;
+		height: 100px;
+		margin: 0 auto;	
+		.f, .s{
+			width: 100%;
+			height: 50px;
+			float: left;
+		}
+		.s{
+			margin-left: -33px;
+		}
+		.datepick{
+			width: 150px;
+		}
+		button.delete{
+			float: left;
+		}
+		label.dto{
+			margin-left: 15px; 
+		}
+		label.dfrom, label.dto, label.pfrom, label.pto {
+			float: left;
+			margin-top: 4px;
+			margin-right: 10px;
+		}
+		input.dfrom, input.dto, input.pfrom, input.pto {
+			float: left;
+			width: 130px;
+			margin-right: 20px;
+		}
+		input.stock {
+			float: left;
+			margin-top: 8px;
+			margin-left: 15px;
+			margin-right: 10px;
+		}
+		label.stock {
+			padding-top: 4px;
+		}
+		label.color {
+			margin-top: 4px;
+			float: left;
+		}
+		select.color {
+			float: left;
+  			margin-left: 10px;
+		}
+	}
+	.list{
+		width: 830px;
+		margin: 0 auto;
+		ul{
+			width: 100%;
+			li{
+				width: 100%;
+				height: 170px;
+				list-style: none;
+				img{
+					width: 250px;
+					height: 150px;
+					float: left;
+					margin-right: 10px;
+				}
+				span.row{
+					float: left;
+					width: 540px;
+					padding-top: 10px;
+					padding-left: 30px;
+					height: 30px;
+				}
+				.name, .color, .inStock{
+					float: left;
+					margin-right: 10px;
+				}
+				.isDate{
+					margin-left: 20px;
+				}
+				button ,.price {
+					float: right;
+				}
+				.color{
+					margin-top: 5px;
+				}
+				.inStock{
+					margin-left: 100px;
+					margin-top: 4px;
+				}
+				.inCart{
+					float: right;
+					margin-right: 20px;
+					margin-top: 4px;
+				}
+				ul.rait{
+					li{
+						width: 17px;
+						height: 12px;
+						float: left;
+						span.astar{
+							color : rgb(249, 128, 6);
+						}
+					}
+				}
+			}
+		}
+	}
+}

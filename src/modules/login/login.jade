@@ -1,0 +1,10 @@
+form.login(ng-submit="login(lemail,lpass)")
+	span.error(ng-if="logerr") {{logerr}}
+	h1 LOG IN
+	label E-mail :
+	input(type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ng-model="lemail" placeholder="example@mail.com" required)
+	label Password :
+	input(type="password" ng-model="lpass" placeholder="password" required)
+	input.btn(type="submit" value="Log in")
+	p	or 
+		a(href="/signup") sign in

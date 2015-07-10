@@ -1,0 +1,12 @@
+
+<div class="cart">
+  <h1>Your items for order</h1>
+  <ul>
+    <li ng-repeat="order in ordermass"><img ng-src="{{order.img}}"/><span class="row"><span class="name">{{order.name}}</span><span class="isDate">{{order.issueDate | date}}</span><span class="price">{{order.price| currency}}</span></span><span class="row"><span class="color">{{order.color}}</span><span ng-if="order.inStock==true" class="inStock">&#10004; In stock</span>
+        <button ng-click="delorder(order.id);refresh()" class="btn">Cancel</button></span><span class="row">
+        <ul ng-init="star=order.rait;istar=5-star" class="rait">
+          <li ng-repeat="n in [] | range:star"><span active-star="active-star" class="astar"></span></li>
+          <li ng-repeat="n in [] | range:istar"><span inactive-star="inactive-star" class="istar"></span></li>
+        </ul></span></li>
+  </ul>
+</div>

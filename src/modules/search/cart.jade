@@ -1,0 +1,19 @@
+.cart
+	h1 Your items for order
+	ul
+		li(ng-repeat="order in ordermass")
+			img(ng-src="{{order.img}}")
+			span.row
+				span.name {{order.name}}
+				span.isDate {{order.issueDate | date}}
+				span.price {{order.price| currency}}
+			span.row
+				span.color {{order.color}}
+				span.inStock(ng-if="order.inStock==true") &#10004; In stock
+				button.btn(ng-click="delorder(order.id);refresh()") Cancel
+			span.row
+				ul.rait(ng-init="star=order.rait;istar=5-star")
+					li(ng-repeat="n in [] | range:star")
+						span.astar(active-star)
+					li(ng-repeat="n in [] | range:istar")
+						span.istar(inactive-star)

@@ -1,0 +1,11 @@
+doctype html
+html(ng-app="shopApp")
+	head
+		title Internet shopping web application
+		meta(charset="utf-8" lang="ru")
+		link(href="/build/css/app.css", rel="stylesheet" type="text/css")
+		link(rel="shortcut icon" href="/build/img/favicon.png" type="image/x-icon")
+		link(rel="icon" href="/build/img/favicon.png" type="image/x-icon")
+	body(ng-controller="mainCtrl" ng-init="sign=0")
+		div(ng-view)
+		script(src="/build/js/bundle.js")

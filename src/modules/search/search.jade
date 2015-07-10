@@ -1,0 +1,51 @@
+.search
+	button.btn.logout(ng-click="logout()") Logout
+	.status
+		span Authorized user : {{authuser}}
+		span(ng-model="ordered" ng-change="refresh()")
+		span.cartLink(ng-click="cartModal()") Cart : {{ordered.length}} item
+			span(ng-if="ordered.length >1") s
+	.filter
+		.f
+			label.dfrom From
+			datepicker.datepick(date-format="MM/dd/yyyy")
+				input.dfrom(ng-model="minDate" type="text" placeholder="Choose date" ng-change="newMinDate(minDate)")
+			button.btn.delete(ng-if="minDate" ng-click="minRemove()") &#10007;
+			label.dto To
+			datepicker.datepick(date-format="MM/dd/yyyy")
+				input.dto(ng-model="maxDate" type="text" placeholder="Choose date" ng-change="newMaxDate(minDate)")
+			button.btn.delete(ng-if="maxDate" ng-click="maxRemove()") &#10007;
+			input.stock(type="checkbox" name="stock" ng-model="inStock" ng-init="inStock=false")
+			label.stock In stock only
+		.s
+			label.pfrom Price from
+			input.pfrom(type="text" placeholder="Enter the price from" ng-model="minPrice")
+			label.pto To
+			input.pto(type="text" placeholder="Enter the price to" ng-model="maxPrice")
+			label.color Color
+			select.color(size="1" ng-model="ccolor")
+				option(value="")
+				option(ng-repeat="color in colors" value="{{color}}") {{color}}
+	.list
+		ul
+			li(ng-repeat="item in items" ng-hide="item.color != ccolor && ccolor || !item.inStock && inStock || item.price < minPrice && minPrice || item.price > maxPrice && maxPrice || item.issueDate < dateFrom && dateFrom || item.issueDate > dateTo && dateTo")
+				img(ng-src="{{item.img}}")
+				span.row
+					span.name {{item.name}}
+					span.isDate {{item.issueDate | date}}
+					span.price {{item.price| currency}}
+				span.row
+					span.color {{item.color}}
+					span.inStock(ng-if="item.inStock==true") &#10004; In stock
+					button.btn(ng-hide="ordered.indexOf(item.id) != -1 && ordered!=null" ng-click="addorder($index)") Order
+					span.ordered(ng-show="ordered.indexOf(item.id) > -1")
+						button.btn(ng-click="delorder($index)") Cancel
+						span.inCart &#10004; In cart
+				span.row
+					ul.rait(ng-init="star=item.rait;istar=5-star")
+						li(ng-repeat="n in [] | range:star")
+							span.astar(active-star)
+						li(ng-repeat="n in [] | range:istar")
+							span.istar(inactive-star)
+//- pre ordered {{ordered|json}}
+//- pre ordermass {{ordermass|json}}
