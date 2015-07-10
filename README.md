@@ -1,5 +1,5 @@
 # ShoppingWebApp-test
-Single Page Internet Shopping Web App (Angularjs,nodejs,gulp,browserify,jade,bootstrap,HTML5/CSS3)
+Single Page Internet Shopping Web App (Angularjs,nodejs,gulp,browserify,jade,less,bootstrap,HTML5/CSS3)
 
 Recommended web-browser for app test : Google Chrome
 
